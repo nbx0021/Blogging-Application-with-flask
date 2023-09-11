@@ -1,0 +1,30 @@
+
+
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center vh-50">
+    <div class="text-center">
+        <p class="h1" style="color: #934ae0; font-weight: bold; margin-bottom: 40px;">Welcome to WebPost</p>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-{{ messages[0].category }} text-white" role="alert">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form action="/login" method="POST" style="max-width: 300px; margin-left: 52px;">
+            <div class="mb-5 text-center">
+                <label for="exampleInputEmail1" class="form-label text-white">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" required value="">
+            </div>
+            <div class="mb-3 text-center">
+                <label for="exampleInputPassword1" class="form-label text-white">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" required value="">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </form>
+    </div>
+</div>
+
+{% endblock body %}

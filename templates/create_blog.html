@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="mb-3">
+        <label for="disabledUsername" class="form-label text-white">Username</label>
+        <input type="text" id="disabledUsername" class="form-control form-control-sm text-center" value="{{ user.user_id }}_{{ user.first_name }}" readonly style="width: 150px; height: 30px;">
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3 text-lg-start">
+            <label for="disabledTextInput" class="form-label text-white">First name</label>
+            <input type="text" id="disabledTextInput" class="form-control form-control-sm text-center" value="{{ user.first_name }}" readonly style="width: 150px; height: 30px;">
+        </div>
+    </div>
+    <h1 class="text-center" style="color: blueviolet;">Write Your Blog</h1>
+   
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form action="/create_blog/{{ user.user_id }}/{{ user.first_name }}/{{user.email_address}}" method="POST">
+                {{ form.hidden_tag() }}  <!-- Add this line to include hidden fields for CSRF protection -->
+                <div class="form-group">
+                    {{ form.blogpost.label(class="form-label text-white") }}
+                    {{ form.blogpost(class="form-control bg-primary text-white mb-4") }}
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Post</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+

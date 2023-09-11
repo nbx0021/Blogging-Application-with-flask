@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="alert alert-dismissible">
+      <ul>
+        {% for message in messages %}
+          <li class="{{ message[1] }}">{{ message[0] }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endwith %}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <!-- Left side (user information) -->
+    <div class="col-md-6">
+        <p class="h1" style="color: #934ae0; font-weight: bold; margin-bottom: 40px;">DASHBOARD</p>
+        <form style="max-width: 1000px;">
+            <!-- Your user information inputs here -->
+            <div class="mb-3">
+                <label for="disabledUsername" class="form-label text-white">Username</label>
+                <input type="text" id="disabledUsername" class="form-control text-center" value="{{user.user_id}}_{{user.first_name}}"
+                    readonly>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3 text-lg-start">
+                    <label for="disabledTextInput" class="form-label text-white">First name</label>
+                    <input type="text" id="disabledTextInput" class="form-control text-center"
+                        value="{{user.first_name}}" readonly>
+                </div>
+
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="Last_name" class="form-label text-white">Last name</label>
+                    <input type="text" class="form-control text-center" id="Last_name" value="{{user.last_name}}"
+                        readonly>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="mobile_number" class="form-label text-white">Mobile Number</label>
+                    <input type="number" class="form-control text-center" id="mobile_number" pattern="[0-9]{10}"
+                        maxlength="10" value="{{user.mobile_number}}" readonly>
+                </div>
+
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="Email" class="form-label text-white">Email address</label>
+                    <input type="email" class="form-control text-center" id="Email" aria-describedby="emailHelp"
+                        value="{{user.email_address}}" readonly>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="date_of_birth" class="form-label text-white">Date of Birth</label>
+                    <input type="date" class="form-control" id="date_of_birth" value="{{user.date_of_birth}}" readonly>
+                </div>
+
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="city" class="form-label text-white">City</label>
+                    <input type="text" class="form-control" id="city" value="{{user.city}}" readonly>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="country" class="form-label text-white">Country</label>
+                    <input type="text" class="form-control" id="country" value="{{user.country}}" readonly>
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Right side (image and Create Blog button) -->
+    <div class="col-md-6 text-center">
+        <!-- User image -->
+        <img src="/static/photos/webpost_img.png" alt="User Image" class="img-fluid mb-3">
+
+        <!-- Create Blog button -->
+        <a href="/create_blog/{{user.user_id}}/{{user.first_name}}/{{user.email_address}}" class="btn btn-primary btn-block" style="width: 300px;">Create Blog</a>
+        <a href="/main_page"  class="btn btn-primary btn-block" style="width: 300px;">Blogs</a>
+    
+    </div>
+</div>
+
+{% endblock body %}

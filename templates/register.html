@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center vh-50">
+    <div class="text-center">
+        <p class="h1" style="color: #934ae0; font-weight: bold; margin-bottom: 40px;">Welcome to WebPost</p>
+        <form action="/register" method="POST" style="max-width: 500px; margin-left: 52px;">
+            {{ form.hidden_tag() }} 
+            <div class="row">
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="first_name" class="form-label text-white">First name</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" required>
+                </div>
+        
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="last_name" class="form-label text-white">Last name</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="mobile_number" class="form-label text-white">Mobile Number</label>
+                    <input type="number" class="form-control" id="mobile_number" name="mobile_number" pattern="[0-9]{10}" maxlength="10" required>
+                </div>
+        
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="email_address" class="form-label text-white">Email address</label>
+                    <input type="email" class="form-control" id="email_address" name="email_address" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="date_of_birth" class="form-label text-white">Date of Birth</label>
+                    <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
+                </div>
+        
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="city" class="form-label text-white">City</label>
+                    <input type="text" class="form-control" id="city" name="city" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="country" class="form-label text-white">Country</label>
+                    <input type="text" class="form-control" id="country" name="country" required>
+                </div>
+        
+                <div class="col-md-6 mb-3 text-center">
+                    <label for="create_password" class="form-label text-white">Create Password</label>
+                    <input type="password" class="form-control" id="create_password" name="create_password" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12 mb-5 text-center">
+                    <label for="confirm_password" class="form-label text-white">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12 text-center">
+                 <button type="submit" class="btn btn-primary btn-block" style="width: 300px;">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock body %}

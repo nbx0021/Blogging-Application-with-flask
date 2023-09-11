@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+  
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="/static/photos/webpost_img.png" class="img-thumbnail" alt="...">
+      </div>
+      <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+        <p class="h1" style="color: #934ae0; font-weight: bold;">Welcome to WebPost</p>
+        <div class="text-center">
+          <a href="/login" class="btn btn-primary my-4 btn-block" style="width: 300px;" >Log in</a>
+          <hr>
+          <p>Or</p>
+          <hr>
+          <a href="/register"  class="btn btn-primary btn-block" style="width: 300px;">Register</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {% endblock body %}

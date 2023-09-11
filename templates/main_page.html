@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <h1 class="text-center mb-3 " style="color: blueviolet;">Blogs</h1>
+        {% for user in all_users %}
+        <div class="col-md-8 mb-4">
+            <div class="form-group">
+                <p style="color: rgb(30, 140, 37); size: 10px;">{{ loop.index }}</p>
+                <textarea class="form-control bg-primary text-white mb-4" rows="15" readonly>
+                    {{ user.blogpost }}
+                </textarea>
+                <p style="color: rgb(238, 234, 242);  display: inline;">by <span style="color: blueviolet; text-align: justify;  display: inline;">{{ user.first_name }} {{ user.last_name }}</span></p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock body %}
